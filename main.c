@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-#define N_ELEMENTS(arr) (sizeof(arr) / sizeof(*(arr)))
+#define N_ELEMENTS(arr) (sizeof(arr) / sizeof(int))
 
 int min_element(int* arr, int size)
 {
-    int min = *arr;
+    int min = 1000000000;
 
-    int* it;
-    for (it = arr + 1; it < arr + size; ++it) {
-        if (*it < min) {
-            min = *it;
-        }
+    for(int i = 0; i < size; i++){
+	if (arr[i] < min)
+	    min = arr[i];
     }
 
     return min;
@@ -20,7 +18,7 @@ void print_array(int* arr, int size)
 {
     printf("Array: ");
     int i;
-    for (i = 0; i < N_ELEMENTS(arr); ++i) {
+    for (i = 0; i < size; ++i) {
         printf("%d ", arr[i]);
     }
     printf("\n");
@@ -37,3 +35,4 @@ int main()
 
     return 0;
 }
+
